@@ -1,10 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  
+  //States
+  const [count, setCount] = useState(10)
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text style={styles.textHuge}>{count}</Text>
+      <Pressable>
+        <Text>+1</Text>
+      </Pressable>
       <StatusBar style="auto" />
     </View>
   );
@@ -17,4 +25,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  textHuge:{
+    fontSize: 150,
+    fontWeight: '100',
+  }
 });
