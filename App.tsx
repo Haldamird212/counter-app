@@ -10,7 +10,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.textHuge}>{count}</Text>
-      <Pressable>
+      <Pressable
+      onPress={() => setCount()}
+      >
         <Text>+1</Text>
       </Pressable>
       <StatusBar style="auto" />
