@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import FAB from './components/FAB';
 
 export default function App() {
   
@@ -10,11 +11,14 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.textHuge}>{count}</Text>
-      <Pressable
-      onPress={() => setCount()}
-      >
-        <Text>+1</Text>
-      </Pressable>
+      <FAB label='+1'
+      position='right'
+       onPress={()=>setCount(count+1)}
+       onLongPress={()=>setCount(0)}/>
+
+       <FAB label='-1'
+      position='left'
+       onPress={()=>setCount(count-1)}/>
       <StatusBar style="auto" />
     </View>
   );
@@ -30,5 +34,5 @@ const styles = StyleSheet.create({
   textHuge:{
     fontSize: 150,
     fontWeight: '100',
-  }
+  },
 });
